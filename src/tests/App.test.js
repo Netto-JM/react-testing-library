@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, act } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
@@ -36,16 +36,5 @@ describe('Testes do componente <App.js />', () => {
 
     const { pathname } = history.location;
     expect(pathname).toBe('/favorites');
-  });
-
-  it('testa um caminho não existente e a renderização do Not Found', () => {
-    const { history } = renderWithRouter(<App />);
-
-    act(() => {
-      history.push('/not/found/page');
-    });
-
-    const notFoundTitle = screen.getByRole('heading', { name: 'Page requested not found' });
-    expect(notFoundTitle).toBeInTheDocument();
   });
 });
