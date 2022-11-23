@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
 
-describe('Testa se o topo da aplicação contém um conjunto fixo de links de navegação', () => {
+describe('Testes do componente <App.js />', () => {
   it('testa se o primeiro link possui o texto Home, e redireciona para a página inicial ao ser clicado', () => {
     const { history } = renderWithRouter(<App />);
     const homeLink = screen.getByRole('link', { name: 'Home' });
