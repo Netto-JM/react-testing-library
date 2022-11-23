@@ -2,7 +2,7 @@ import React from 'react';
 import { screen, render } from '@testing-library/react';
 import { About } from '../pages';
 
-describe('Testes o componente <About.js />', () => {
+describe('Testes do componente <About.js />', () => {
   it('testa se a página contém um heading h2 com o texto About Pokédex', () => {
     render(<About />);
 
