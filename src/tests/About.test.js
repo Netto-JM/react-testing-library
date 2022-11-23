@@ -25,7 +25,7 @@ describe('Testes do componente <About.js />', () => {
 
     const URL = 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png';
 
-    const pokedexImage = screen.getByRole('img');
+    const pokedexImage = screen.getByRole('img', { name: /pokédex/i });
     expect(pokedexImage).toHaveAttribute('src', URL);
     expect(pokedexImage).toHaveAttribute('alt', 'Pokédex');
     expect(pokedexImage).toBeInTheDocument();
