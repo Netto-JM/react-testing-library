@@ -13,7 +13,7 @@ describe('Testes do componente <FavoritePokemon.js />', () => {
     expect(noFavoriteMessage).toBeInTheDocument();
   });
 
-  it('Teste se são exibidos todos os cards de Pokémon favoritados', () => {
+  it('testa se são exibidos todos os cards de Pokémon favoritados', () => {
     renderWithRouter(<App />);
 
     const pikachu = screen.getByText('Pikachu');
