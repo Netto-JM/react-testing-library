@@ -12,7 +12,7 @@ describe('Testes do componente <App.js />', () => {
 
     userEvent.click(homeLink);
 
-    const { pathname } = history.location;
+    const { location: { pathname } } = history;
     expect(pathname).toBe('/');
   });
 
@@ -23,7 +23,7 @@ describe('Testes do componente <App.js />', () => {
     expect(aboutLink).toBeInTheDocument();
     userEvent.click(aboutLink);
 
-    const { pathname } = history.location;
+    const { location: { pathname } } = history;
     expect(pathname).toBe('/about');
   });
 
@@ -34,7 +34,7 @@ describe('Testes do componente <App.js />', () => {
     expect(favoritesLink).toBeInTheDocument();
     userEvent.click(favoritesLink);
 
-    const { pathname } = history.location;
+    const { location: { pathname } } = history;
     expect(pathname).toBe('/favorites');
   });
 
