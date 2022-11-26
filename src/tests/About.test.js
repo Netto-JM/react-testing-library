@@ -6,7 +6,7 @@ describe('Testes do componente <About.js />', () => {
   it('testa se a página contém um heading h2 com o texto About Pokédex', () => {
     render(<About />);
 
-    const aboutHeading = screen.getByRole('heading', { name: 'About Pokédex' });
+    const aboutHeading = screen.getByRole('heading', { name: 'About Pokédex', level: 2 });
     expect(aboutHeading).toBeInTheDocument();
   });
 
@@ -27,7 +27,6 @@ describe('Testes do componente <About.js />', () => {
 
     const pokedexImage = screen.getByRole('img', { name: /pokédex/i });
     expect(pokedexImage).toHaveAttribute('src', URL);
-    expect(pokedexImage).toHaveAttribute('alt', 'Pokédex');
     expect(pokedexImage).toBeInTheDocument();
   });
 });
