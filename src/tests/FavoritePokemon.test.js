@@ -14,16 +14,19 @@ describe('Testes do componente <FavoritePokemon.js />', () => {
   });
 
   it('testa se são exibidos todos os cards de Pokémon favoritados', () => {
-    renderWithRouter(<App />);
+    const { history } = renderWithRouter(<App />);
+    expect(history.location.pathname).toBe('/');
 
     const pikachu = screen.getByText('Pikachu');
     expect(pikachu).toBeInTheDocument();
 
     userEvent.click(screen.getByRole('link', { name: 'More details' }));
+    expect(history.location.pathname).toBe('/pokemon/25');
     userEvent.click(screen.getByRole('checkbox', { name: 'Pokémon favoritado?' }));
 
     const homeLink = screen.getByRole('link', { name: 'Home' });
     userEvent.click(homeLink);
+    expect(history.location.pathname).toBe('/');
 
     const nextButton = screen.getByRole('button', { name: 'Próximo Pokémon' });
     userEvent.click(nextButton);
@@ -33,10 +36,12 @@ describe('Testes do componente <FavoritePokemon.js />', () => {
     expect(caterpie).toBeInTheDocument();
 
     userEvent.click(screen.getByRole('link', { name: 'More details' }));
+    expect(history.location.pathname).toBe('/pokemon/10');
     userEvent.click(screen.getByRole('checkbox', { name: 'Pokémon favoritado?' }));
 
     const favoritesLink = screen.getByRole('link', { name: 'Favorite Pokémon' });
     userEvent.click(favoritesLink);
+    expect(history.location.pathname).toBe('/favorites');
 
     const favoritePokemon = screen.getAllByTestId('pokemon-name');
     expect(favoritePokemon[0]).toHaveTextContent('Pikachu');
