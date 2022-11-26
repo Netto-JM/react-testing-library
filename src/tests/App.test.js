@@ -45,7 +45,7 @@ describe('Testes do componente <App.js />', () => {
       history.push('/not/found/page');
     });
 
-    const notFoundTitle = screen.getByRole('heading', { name: 'Page requested not found' });
+    const notFoundTitle = screen.getByRole('heading', { name: 'Page requested not found', level: 2 });
     expect(notFoundTitle).toBeInTheDocument();
   });
 });
