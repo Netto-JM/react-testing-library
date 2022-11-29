@@ -3,6 +3,7 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
+import { Pokedex } from '../pages';
 
 describe('Testes do componente <Pokedex.js />', () => {
   it('testa se a página contém um heading h2 com o texto Encountered Pokémon', () => {
@@ -81,6 +82,11 @@ describe('Testes do componente <Pokedex.js />', () => {
     const allButton = screen.getByRole('button', { name: 'All' });
     expect(allButton).toBeInTheDocument();
     expect(allButton).toBeEnabled();
+
+    const spy = jest.spyOn(Pokedex.prototype, 'filterPokemon');
+    userEvent.click(allButton);
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(spy).toHaveBeenCalledWith('all');
   });
 
   it('testa se a Pokédex contém um botão para resetar o filtro', () => {
