@@ -54,7 +54,10 @@ describe('Testes do componente <Pokemon.js />', () => {
     const { location: { pathname } } = history;
     expect(pathname).toBe(HREF);
 
-    userEvent.click(screen.getByRole('checkbox', { name: 'Pokémon favoritado?' }));
+    const favoriteCheck = screen.getByRole('checkbox', { name: 'Pokémon favoritado?' });
+    userEvent.click(favoriteCheck);
+    userEvent.click(favoriteCheck);
+    userEvent.click(favoriteCheck);
 
     const homeLink = screen.getByRole('link', { name: 'Home' });
     userEvent.click(homeLink);
